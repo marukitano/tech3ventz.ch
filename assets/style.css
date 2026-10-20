@@ -962,7 +962,8 @@ button, .button {
 
 /* On a normal desktop/laptop viewport, the entire year fits without scrolling. */
 @media (min-width: 1101px) {
-    html, body { height: 100%; overflow: hidden; }
+    html:not(.legal-root),
+    html:not(.legal-root) body { height: 100%; overflow: hidden; }
 
     .shell {
         height: 100dvh;
