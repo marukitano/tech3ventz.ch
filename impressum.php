@@ -126,7 +126,7 @@ if (!$legalReady) {
         </p>
     <?php endif; ?>
 
-    <a class="legal-back" href="/">← back to tech3ventz</a>
+    <a class="legal-back" href="/">← zurück</a>
 </main>
 </body>
 </html>
