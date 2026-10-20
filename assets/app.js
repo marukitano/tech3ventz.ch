@@ -161,6 +161,15 @@
         return true;
     };
 
+    // Menus that can become taller than one line must participate in layout.
+    // Keeping them absolutely positioned over the large terminal prompt caused
+    // touchscreen laptops to end up with an overlapping, effectively blocked UI
+    // as soon as `man` or the quiz opened.
+    const setFlowOutput = (enabled) => {
+        output.classList.toggle('is-flow-output', enabled);
+        form.classList.toggle('has-flow-output', enabled);
+    };
+
     const say = (text) => {
         suggestions = [];
         suggestionIndex = -1;
@@ -168,6 +177,7 @@
         suggestionMode = 'default';
         suggestionPrompt = '';
         stopTicker();
+        setFlowOutput(false);
         output.classList.remove('is-quiz', 'is-manual-page');
         output.textContent = text;
         resetOutputScroll();
@@ -187,6 +197,7 @@
         suggestionMode = 'default';
         suggestionPrompt = '';
         stopTicker();
+        setFlowOutput(true);
         output.classList.remove('is-quiz');
         output.classList.add('is-manual-page');
         output.replaceChildren();
@@ -226,6 +237,7 @@
         suggestionPrompt = '';
         stopOutputScroll();
         stopTicker();
+        setFlowOutput(false);
         output.classList.remove('is-quiz', 'is-manual-page');
         outputScrollX = 0;
         output.scrollLeft = 0;
@@ -270,6 +282,7 @@
         suggestionMode = 'default';
         suggestionPrompt = '';
         stopTicker();
+        setFlowOutput(false);
         output.classList.remove('is-quiz', 'is-manual-page');
         output.textContent = '';
         resetOutputScroll();
@@ -338,10 +351,12 @@
 
     const renderSuggestions = (direction = 0) => {
         if (!suggestions.length) {
+            setFlowOutput(false);
             output.textContent = '';
             return;
         }
 
+        setFlowOutput(suggestionMode === 'manual' || suggestionMode === 'quiz');
         output.classList.remove('is-manual-page');
         output.replaceChildren();
 
@@ -421,7 +436,7 @@
     const positionOutput = () => {
         const formRect = form.getBoundingClientRect();
 
-        if (touchUi) {
+        if (touchUi || output.classList.contains('is-flow-output')) {
             output.style.left = '';
             output.style.top = '';
             output.style.width = '';
