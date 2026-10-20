@@ -3070,7 +3070,7 @@ html.rabbit-attack-active body {
 }
 
 
-@media (pointer: coarse) {
+@media (pointer: coarse) and (max-width: 719px) {
     .terminal-suggestion {
         display: inline-block;
         padding: .2em .3em;
