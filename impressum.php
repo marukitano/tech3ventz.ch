@@ -12,7 +12,7 @@ if (!$legalReady) {
 }
 ?>
 <!doctype html>
-<html lang="de">
+<html lang="de" class="legal-root">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -20,7 +20,7 @@ if (!$legalReady) {
     <title>Impressum + Datenschutz // tech3ventz.ch</title>
     <link rel="stylesheet" href="/assets/style.css">
 </head>
-<body>
+<body class="legal-body">
 <main class="legal-page">
     <h1>impressum + datenschutz</h1>
 
