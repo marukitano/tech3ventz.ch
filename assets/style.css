@@ -1110,6 +1110,16 @@ button, .button {
     padding: 34px 0 60px;
 }
 
+/* Legal pages must always remain scrollable. The desktop calendar intentionally
+   locks the root viewport, so opt the standalone legal page out of that rule. */
+html.legal-root,
+html.legal-root body.legal-body {
+    height: auto !important;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto !important;
+}
+
 .legal-page h1,
 .legal-page h2 {
     font-family: "VT323", "Courier New", monospace;
