@@ -3862,3 +3862,34 @@ body {
         transition: none !important;
     }
 }
+
+/* LEGAL PAGE // force reliable mouse + touch scrolling on all viewport sizes.
+   The calendar intentionally locks the desktop root viewport; the standalone
+   legal page gets its own scroll container so touch laptops are not trapped. */
+html.legal-root {
+    height: 100% !important;
+    min-height: 100% !important;
+    overflow: hidden !important;
+}
+
+html.legal-root body.legal-body {
+    height: 100% !important;
+    min-height: 100% !important;
+    overflow: hidden !important;
+    touch-action: pan-y !important;
+    overscroll-behavior-y: auto !important;
+}
+
+html.legal-root body.legal-body .legal-page {
+    width: min(920px, 96vw);
+    height: 100dvh;
+    min-height: 0;
+    margin: 0 auto;
+    padding: 34px 0 60px;
+    overflow-x: hidden;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y !important;
+    overscroll-behavior-y: auto;
+}
+
