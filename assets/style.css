@@ -3863,33 +3863,27 @@ body {
     }
 }
 
-/* LEGAL PAGE // force reliable mouse + touch scrolling on all viewport sizes.
-   The calendar intentionally locks the desktop root viewport; the standalone
-   legal page gets its own scroll container so touch laptops are not trapped. */
-html.legal-root {
-    height: 100% !important;
-    min-height: 100% !important;
-    overflow: hidden !important;
-}
-
+/* LEGAL PAGE // always use native document scrolling.
+   Do not create a nested 100dvh scroll container here: on wide touchscreen
+   laptops Chromium can stop routing touch/wheel scrolling to that container.
+   The legal pages explicitly opt out of the desktop calendar's viewport lock. */
+html.legal-root,
 html.legal-root body.legal-body {
-    height: 100% !important;
+    height: auto !important;
     min-height: 100% !important;
-    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
     touch-action: pan-y !important;
     overscroll-behavior-y: auto !important;
 }
 
 html.legal-root body.legal-body .legal-page {
     width: min(920px, 96vw);
-    height: 100dvh;
-    min-height: 0;
+    height: auto !important;
+    min-height: 100dvh;
     margin: 0 auto;
     padding: 34px 0 60px;
-    overflow-x: hidden;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible !important;
     touch-action: pan-y !important;
-    overscroll-behavior-y: auto;
 }
 
