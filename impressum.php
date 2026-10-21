@@ -46,11 +46,12 @@ if (!$legalReady) {
             E-Mail: <a href="mailto:<?= h((string)$legal['email']) ?>"><?= h((string)$legal['email']) ?></a>
         </address>
 
-        <h2>Event eintragen oder Account erhalten</h2>
+        <h2>Event eintragen, Account erhalten oder aufs Friends Board</h2>
         <p>
-            Du möchtest ein passendes Event auf tech3ventz.ch eintragen lassen oder einen eigenen
-            Partner-Account erhalten, um deine Events selbst zu verwalten? Dann melde dich einfach per
-            E-Mail bei mir unter
+            Du möchtest ein passendes Event auf tech3ventz.ch eintragen lassen, einen eigenen
+            Partner-Account erhalten, um deine Events selbst zu verwalten, oder mit deinem Projekt,
+            Hackerspace oder deiner Community auf dem Friends Board angepinnt werden? Dann melde dich
+            einfach per E-Mail bei mir unter
             <a href="mailto:<?= h((string)$legal['email']) ?>"><?= h((string)$legal['email']) ?></a>.
         </p>
 
