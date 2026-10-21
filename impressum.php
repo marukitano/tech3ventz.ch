@@ -46,6 +46,14 @@ if (!$legalReady) {
             E-Mail: <a href="mailto:<?= h((string)$legal['email']) ?>"><?= h((string)$legal['email']) ?></a>
         </address>
 
+        <h2>Event eintragen oder Account erhalten</h2>
+        <p>
+            Du möchtest ein passendes Event auf tech3ventz.ch eintragen lassen oder einen eigenen
+            Partner-Account erhalten, um deine Events selbst zu verwalten? Dann melde dich einfach per
+            E-Mail bei mir unter
+            <a href="mailto:<?= h((string)$legal['email']) ?>"><?= h((string)$legal['email']) ?></a>.
+        </p>
+
         <h2>Datenschutz</h2>
         <p>
             Verantwortlich für die Bearbeitung von Personendaten auf dieser Website ist die oben
