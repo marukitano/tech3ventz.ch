@@ -82,7 +82,7 @@ function admin_date_display(?string $date): string
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>tech3ventz // admin</title>
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/style.css?v=<?= filemtime(dirname(__DIR__) . '/assets/style.css') ?>">
 </head>
 <body class="admin-page">
 <main class="admin-shell">
